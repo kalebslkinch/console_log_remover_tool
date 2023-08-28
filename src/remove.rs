@@ -4,22 +4,21 @@ pub fn console_log(string: &String) -> String {
 
     let lines: Vec<&str> = string.split("\n").collect();
 
-    // check lines for console.log
+    let mut counter = 0;
+
     for line in lines {
 
         if line.contains("console.log") {
-            // remove entire line 
             println!("{}", line);
+            counter += 1; 
             continue
         } else {
-            // add line to new_string
             new_string.push_str(line);
             new_string.push_str("\n");
         }
     }
 
-
-
+    println!("{} lines removed", counter);
 
    new_string   
 
